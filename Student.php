@@ -13,6 +13,9 @@
  */
 class Student {
     
+    /**
+     * constructor of a student which initializes the student's members 
+     */
     function __construct() {
         $this->surname = '';
         $this->first_name = '';
@@ -43,8 +46,12 @@ class Student {
      */
     function average() {
         $total = 0;
-        foreach ($this->grades as $value)
+        
+        // sum grades
+        foreach ($this->grades as $value) {
             $total += $value;
+        }
+        
         return $total / count($this->grades);
     }
     
@@ -53,11 +60,17 @@ class Student {
      * @return string
      */
     function toString() {
+        // name
         $result = $this->first_name . ' ' . $this->surname . "\n";
+        
+        // average grade
         $result .= 'Average Grade: ' . $this->average() . "\n";
+        
+        // listing emails
         foreach($this->emails as $which=>$what)
             $result .= $which . ': '. $what. "\n";
         $result .= "\n";
+        
         return '<pre>'.$result.'</pre>';
     }
 }
