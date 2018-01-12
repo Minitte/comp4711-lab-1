@@ -36,4 +36,15 @@ class Student {
     function add_grade($grade) {
         $this->grades[] = $grade;
     }
+    
+    /**
+     * Calculates the average grade of this student 
+     * @return type the average grade
+     */
+    function average() {
+        $total = 0;
+        foreach ($this->grades as $value)
+            $total += $value;
+        return $total / count($this->grades);
+    }
 }
